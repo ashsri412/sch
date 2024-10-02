@@ -1,0 +1,33 @@
+@startuml
+package "Scheduler" {
+  [Physical Resource Manager]
+  [Time Resource Manager]
+  [User Request Manager]
+}
+
+database "Physical Resources DB" {
+  frame "Available physical resource per division" {
+    [Available list]
+  }
+  frame "Blocked physical resource per division" {
+    [Blocked list]
+  }
+}
+
+database "Time Resources DB" {
+  frame "Current time in format frame:slot" {
+    [Current time]
+  }
+}
+
+database "User Request DB" {
+  frame "User request in priority queues" {
+    [User Request]
+  }
+}
+
+[Physical Resource Manager] --> [Available list]
+[Available list] --> [Blocked list]
+[Time Resource Manager] --> [Current time]
+[User Request Manager] --> [User Request]
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+[*] --> Available : Initialization
+Available --> Contested : Allocation Request
+Contested --> Available : Contention Failed
+Contested --> Unavailable : Contention Pass
+Unavailable --> Available : Free Request
+@enduml

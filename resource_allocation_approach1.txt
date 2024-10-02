@@ -1,0 +1,21 @@
+@startuml
+start
+:Pick from user request queue and put into resource allocation queue;
+:Start allocation of resources priority wise;
+
+if (Requested resource available?) then (yes)
+  :Allocate the resource;
+  :Inform user at least delta time in advance;
+  :Delete from request queue;
+else (no)
+  if (Partial resource allocation possible?) then (yes)
+    : Allocate partial resource;
+    : Inform user at least delta time in advance;
+    :Delete from request queue;
+  else (no)
+    : resource allocation not possible;
+    : Inform user at least delta time in advance;
+endif
+endif  
+stop
+@enduml
